@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Entities;
-using Intetics.Courses.LinqToObjects.Entitites;
 
 namespace Intetics.Courses.LinqToObjects
 {
@@ -24,6 +23,13 @@ namespace Intetics.Courses.LinqToObjects
             group1.Students.Add(st2);
             group2.Students.Add(st3);
             group2.Students.Add(st4);
+
+            IOperation<Student> operation = new Operation<Student>();
+            var averageAge1 = operation.GetAverageAge(group1.Students);
+            var averageAge2 = operation.GetAverageAge(group2.Students);
+            Console.WriteLine(String.Format("Average age in group №{1} : {0}", averageAge1, group1.Number));
+            Console.WriteLine(String.Format("Average age in group №{1} : {0}", averageAge2, group2.Number));
+            Console.ReadLine();
         }
     }
 }

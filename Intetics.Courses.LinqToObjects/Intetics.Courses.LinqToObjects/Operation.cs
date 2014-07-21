@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Intetics.Courses.LinqToObjects.Entitites;
+using Entities;
 
 namespace Intetics.Courses.LinqToObjects
 {
-    public class Operation: IOperation
+    public class Operation<T>: IOperation<T> where T: Student
     {
-        public float GetAverageAge<T>(ICollection<T> objects)
+        public double GetAverageAge(ICollection<T> objects)
         {
-            return objects.Average<T>();
+            return objects.Average(student => student.Age);
         }
     }
 }

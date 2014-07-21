@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Intetics.Courses.LinqToObjects
 {
-    public interface IOperation
+    public interface IOperation<T>
     {
-        float GetAverageAge<T>(ICollection<T> objects);
+        double GetAverageAge(ICollection<T> objects);
     }
 }
